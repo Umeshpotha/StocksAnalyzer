@@ -7,7 +7,7 @@ from statsmodels.tsa.holtwinters import ExponentialSmoothing
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
+import os
 # Streamlit app title
 st.title("Stock Analyzer and Predictor")
 
@@ -68,8 +68,8 @@ if stock_ticker:
         email = st.sidebar.text_input("Enter recipient email")
         if st.sidebar.button("Send Email"):
             try:
-                sender_email = "your_email@gmail.com"
-                sender_password = "your_password"
+                sender_email = os.getenv("EMAIL_HOST_USER")
+                sender_password = os.getenv("EMAIL_HOST_PASSWORD")
                 
                 msg = MIMEMultipart()
                 msg['From'] = sender_email
