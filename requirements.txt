@@ -1,5 +1,4 @@
 yfinance
 streamlit
-smtplib
 statsmodels
 plotly
